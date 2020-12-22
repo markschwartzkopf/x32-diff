@@ -91,7 +91,7 @@ function deleteEmpty(path: string[], diff?: diffObject, absPath?: string[]) {
   } else {
     if (diff[path[0]].hasOwnProperty('current')) {
       let leaf = diff[path[0]] as diffLeaf;
-      if (leaf.current == leaf.reference) delete diff[path[0]];
+      if (leaf.current == leaf.reference || (parseFloat(leaf.current) == parseFloat(leaf.reference) && parseFloat(leaf.current) != NaN)) delete diff[path[0]];
       deleteEmpty(absPath.slice(0, -1));
     } else {
       if (Object.keys(diff[path[0]]).length < 2) {
