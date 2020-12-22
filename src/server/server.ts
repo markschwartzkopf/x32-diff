@@ -12,6 +12,7 @@ class myWebSocket extends WebSocket {
   ip: string = 'no ip given';
   pushAllOsc?: () => void;
   pushOsc?: (osc: any) => void;
+  pushFiles?: (files: string[]) => void;
 }
 
 app.use(express.static(__dirname + '/../public', { index: 'index.html' }));
@@ -21,7 +22,7 @@ const server = app.listen(80, () => console.log('Listening on port 80.'));
 const wss = new WebSocket.Server({ server });
 
 wss.on('connection', (ws: myWebSocket, req) => {
-  if (req.socket.remoteAddress){
+  if (req.socket.remoteAddress) {
     ws.ip = req.socket.remoteAddress.replace(/^.*:/, '');
   }
   console.log('Client connected: ' + ws.ip);
@@ -31,16 +32,23 @@ wss.on('connection', (ws: myWebSocket, req) => {
   });
   ws.pushAllOsc = () => {
     console.log('pushing OSC object to ' + ws.ip);
-    ws.send(JSON.stringify(globalObj.is('processApiCmd', '{ "command": "init" }')));
-  }
+    ws.send(
+      JSON.stringify(globalObj.is('processApiCmd', '{ "command": "init" }'))
+    );
+  };
   ws.pushOsc = (osc: any) => {
-    ws.send(JSON.stringify({type: 'osc', data: osc}));
-  }
+    ws.send(JSON.stringify({ type: 'osc', data: osc }));
+  };
+  ws.pushFiles = (files) => {
+    ws.send(JSON.stringify({ type: 'files', data: files }));
+  };
   globalObj.event.on('pushAllOsc', ws.pushAllOsc);
   globalObj.event.on('osc', ws.pushOsc);
+  globalObj.event.on('activeFiles', ws.pushFiles);
   ws.on('close', () => {
     globalObj.event.removeListener('pushAllOsc', ws.pushAllOsc);
     globalObj.event.removeListener('osc', ws.pushOsc);
+    globalObj.event.removeListener('activeFiles', ws.pushFiles);
     console.log('Connection properly closed for: ' + ws.ip);
   });
   ws.on('message', (msg: string) => {

@@ -8,7 +8,7 @@ const fs_1 = __importDefault(require("fs"));
 const x32_1 = __importDefault(require("./x32"));
 const config = require('./../x32-files/config.json');
 const X32_address = '172.19.1.102';
-//let message = strToBuf('/xremote');
+let activeFiles = [];
 let x32 = new x32_1.default(X32_address);
 function oscFileToObject(filename, ignore) {
     return new Promise((res, rej) => {
@@ -71,6 +71,8 @@ x32.on('populated', () => {
     global_1.default.event.emit('pushAllOsc');
 });
 x32.on('osc', (oscObject) => {
+    let oldFiles = activeFiles.slice(0);
+    activeFiles = [];
     let smallDiff = {};
     if (!global_1.default.diff)
         global_1.default.diff = {};
@@ -84,6 +86,7 @@ x32.on('osc', (oscObject) => {
                     evaluate = false;
             }
         if (evaluate) {
+            activeFiles.push(global_1.default.reference[x].name);
             global_1.default.diff[global_1.default.reference[x].name] = x32_1.default.getDiffObj(global_1.default.reference[x].obj, x32.oscObj);
             if (oscObject) {
                 smallDiff[global_1.default.reference[x].name] = x32_1.default.getTinyDiffObj(global_1.default.reference[x].obj, oscObject);
@@ -107,7 +110,11 @@ x32.on('osc', (oscObject) => {
         }
     }
     if (Object.keys(smallDiff).length != 0) {
-        global_1.default.event.emit('osc', (smallDiff));
+        global_1.default.event.emit('osc', smallDiff);
+    }
+    if (JSON.stringify(activeFiles) != JSON.stringify(oldFiles)) {
+        global_1.default.event.emit('pushAllOsc');
+        //globalObj.event.emit('activeFiles', activeFiles);
     }
 });
 function getObjVal(path, obj) {

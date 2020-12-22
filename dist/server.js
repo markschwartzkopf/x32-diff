@@ -34,11 +34,16 @@ wss.on('connection', (ws, req) => {
     ws.pushOsc = (osc) => {
         ws.send(JSON.stringify({ type: 'osc', data: osc }));
     };
+    ws.pushFiles = (files) => {
+        ws.send(JSON.stringify({ type: 'files', data: files }));
+    };
     global_1.default.event.on('pushAllOsc', ws.pushAllOsc);
     global_1.default.event.on('osc', ws.pushOsc);
+    global_1.default.event.on('activeFiles', ws.pushFiles);
     ws.on('close', () => {
         global_1.default.event.removeListener('pushAllOsc', ws.pushAllOsc);
         global_1.default.event.removeListener('osc', ws.pushOsc);
+        global_1.default.event.removeListener('activeFiles', ws.pushFiles);
         console.log('Connection properly closed for: ' + ws.ip);
     });
     ws.on('message', (msg) => {

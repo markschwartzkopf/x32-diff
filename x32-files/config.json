@@ -44,14 +44,82 @@
       {
         "file": "00RTMP1_Stereo.snp",
         "name": "RTMP1 (stereo)",
-        "ignore": ["/ch/17/mix ", "/ch/18/mix ", "/ch/18/mix/st"],
         "conditionals": ["/config/chlink/17-18 ON"]
       },
       {
         "file": "01RTMP1_Mono.snp",
         "name": "RTMP1 (mic|game)",
-        "ignore": ["/ch/17/mix ", "/ch/18/mix "],
         "conditionals": ["/config/chlink/17-18 OFF"]
+      },
+      {
+        "file": "02RTMP2_Stereo.snp",
+        "name": "RTMP2 (stereo)",
+        "conditionals": ["/config/chlink/19-20 ON"]
+      },
+      {
+        "file": "03RTMP2_Mono.snp",
+        "name": "RTMP2 (mic|game)",
+        "conditionals": ["/config/chlink/19-20 OFF"]
+      },
+      {
+        "file": "04RTMP3_Stereo.snp",
+        "name": "RTMP3 (stereo)",
+        "conditionals": ["/config/chlink/21-22 ON"]
+      },
+      {
+        "file": "05RTMP3_Mono.snp",
+        "name": "RTMP3 (mic|game)",
+        "conditionals": ["/config/chlink/21-22 OFF"]
+      },
+      {
+        "file": "06RTMP4_Stereo.snp",
+        "name": "RTMP4 (stereo)",
+        "conditionals": ["/config/chlink/23-24 ON"]
+      },
+      {
+        "file": "07RTMP4_Mono.snp",
+        "name": "RTMP4 (mic|game)",
+        "conditionals": ["/config/chlink/23-24 OFF"]
+      },
+      {
+        "file": "08RTMP5_Stereo.snp",
+        "name": "RTMP5 (stereo)",
+        "conditionals": ["/config/chlink/25-26 ON"]
+      },
+      {
+        "file": "09RTMP5_Mono.snp",
+        "name": "RTMP5 (mic|game)",
+        "conditionals": ["/config/chlink/25-26 OFF"]
+      },
+      {
+        "file": "10RTMP6_Stereo.snp",
+        "name": "RTMP6 (stereo)",
+        "conditionals": ["/config/chlink/27-28 ON"]
+      },
+      {
+        "file": "11RTMP6_Mono.snp",
+        "name": "RTMP6 (mic|game)",
+        "conditionals": ["/config/chlink/27-28 OFF"]
+      },
+      {
+        "file": "12RTMP7_Stereo.snp",
+        "name": "RTMP7 (stereo)",
+        "conditionals": ["/config/chlink/29-30 ON"]
+      },
+      {
+        "file": "13RTMP7_Mono.snp",
+        "name": "RTMP7 (mic|game)",
+        "conditionals": ["/config/chlink/29-30 OFF"]
+      },
+      {
+        "file": "14RTMP8_Stereo.snp",
+        "name": "RTMP8 (stereo)",
+        "conditionals": ["/config/chlink/31-32 ON"]
+      },
+      {
+        "file": "15RTMP8_Mono.snp",
+        "name": "RTMP8 (mic|game)",
+        "conditionals": ["/config/chlink/31-32 OFF"]
       }
     ]
   }

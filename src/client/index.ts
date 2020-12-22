@@ -27,8 +27,23 @@ function processDataFromServer(apiObj: apiObject) {
       break;
     case 'osc':
       updateOrCreateLeaf(apiObj.data);
+      console.log(apiObj.data);
       rootDiv.innerHTML = '';
       drawTree(rootDiv, oscObj);
+      break;
+    case 'files':
+      //not currently implemented. This requires the client to be able to poll for one file's diff
+      //currently the server resends all data when the file list changes, so anything this code would do would be redundant
+      for (const key in oscObj) {
+        if (apiObj.data.indexOf(key) == -1) {
+          //delete oscObj[key]
+        }
+      }
+      for (let x = 0; x < apiObj.data.length; x++) {
+        if (!oscObj.hasOwnProperty(apiObj.data[x])) {
+          //poll for file diff from server
+        }
+      }
       break;
     default:
       console.error('Invalid message from API:' + JSON.stringify(apiObj));
@@ -76,14 +91,15 @@ function deleteEmpty(path: string[], diff?: diffObject, absPath?: string[]) {
   } else {
     if (diff[path[0]].hasOwnProperty('current')) {
       let leaf = diff[path[0]] as diffLeaf;
-      if (leaf.current == leaf.reference) delete diff[path[0]]
-      deleteEmpty(absPath.slice(0, -1))
+      if (leaf.current == leaf.reference) delete diff[path[0]];
+      deleteEmpty(absPath.slice(0, -1));
     } else {
       if (Object.keys(diff[path[0]]).length < 2) {
         delete diff[path[0]];
-        if (absPath.length > 1) deleteEmpty(absPath.slice(0, -1))
+        if (absPath.length > 1) deleteEmpty(absPath.slice(0, -1));
       } else {
-        if (path.length > 1) deleteEmpty (path.slice(1), diff[path[0]] as diffObject, absPath)
+        if (path.length > 1)
+          deleteEmpty(path.slice(1), diff[path[0]] as diffObject, absPath);
       }
     }
   }
@@ -91,7 +107,10 @@ function deleteEmpty(path: string[], diff?: diffObject, absPath?: string[]) {
 
 function drawTree(div: HTMLDivElement, diff: diffObject, path?: string[]) {
   if (!path) path = [];
-  for (const key in diff) {
+  let keys = Object.keys(diff);
+  keys.sort();
+  for (let x = 0; x < keys.length; x++) {
+    const key = keys[x];
     let child = document.createElement('div');
     if (path.length > 0) {
       child.id = path.join('/') + '/' + key;

@@ -298,8 +298,6 @@ class X32 extends EventEmitter {
                                 return 'error: invalid osc format';
                             let float161 = buff.readFloatBE();
                             float161 = Math.round(float161 * 160) / 160;
-                            //console.log(Math.round(float161 * 160))
-                            console.log(float161);
                             let db161 = 1337;
                             if (float161 == 0) {
                                 xvalue = '-oo';

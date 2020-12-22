@@ -26,8 +26,23 @@ function processDataFromServer(apiObj) {
             break;
         case 'osc':
             updateOrCreateLeaf(apiObj.data);
+            console.log(apiObj.data);
             rootDiv.innerHTML = '';
             drawTree(rootDiv, oscObj);
+            break;
+        case 'files':
+            //not currently implemented. This requires the client to be able to poll for one file's diff
+            //currently the server resends all data when the file list changes, so anything this code would do would be redundant
+            for (const key in oscObj) {
+                if (apiObj.data.indexOf(key) == -1) {
+                    //delete oscObj[key]
+                }
+            }
+            for (let x = 0; x < apiObj.data.length; x++) {
+                if (!oscObj.hasOwnProperty(apiObj.data[x])) {
+                    //poll for file diff from server
+                }
+            }
             break;
         default:
             console.error('Invalid message from API:' + JSON.stringify(apiObj));
@@ -93,7 +108,10 @@ function deleteEmpty(path, diff, absPath) {
 function drawTree(div, diff, path) {
     if (!path)
         path = [];
-    for (const key in diff) {
+    let keys = Object.keys(diff);
+    keys.sort();
+    for (let x = 0; x < keys.length; x++) {
+        const key = keys[x];
         let child = document.createElement('div');
         if (path.length > 0) {
             child.id = path.join('/') + '/' + key;
