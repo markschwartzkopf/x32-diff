@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "file": "GDQ_Studio.scn",
+      "name": "Scene File",
+      "ignore": [
+        "/ch/17",
+        "/ch/18",
+        "/ch/19",
+        "/ch/20",
+        "/ch/21",
+        "/ch/22",
+        "/ch/23",
+        "/ch/24",
+        "/ch/25",
+        "/ch/26",
+        "/ch/27",
+        "/ch/28",
+        "/ch/29",
+        "/ch/30",
+        "/ch/31",
+        "/ch/32",
+        "/headamp/016",
+        "/headamp/017",
+        "/headamp/018",
+        "/headamp/019",
+        "/headamp/020",
+        "/headamp/021",
+        "/headamp/022",
+        "/headamp/023",
+        "/headamp/024",
+        "/headamp/025",
+        "/headamp/026",
+        "/headamp/027",
+        "/headamp/028",
+        "/headamp/029",
+        "/headamp/030",
+        "/headamp/031",
+        "/dca/1 ",
+        "/dca/2 ",
+        "/dca/3 "
+      ]
+    },
+    {
+      "file": "00RTMP1_Stereo.snp",
+      "name": "RTMP1 (stereo)",
+      "ignore": ["/ch/17/mix ", "/ch/18/mix ", "/ch/18/mix/st"],
+      "conditionals": ["/config/chlink/17-18 ON"]
+    },
+    {
+      "file": "01RTMP1_Mono.snp",
+      "name": "RTMP1 (mic|game)",
+      "ignore": ["/ch/17/mix ", "/ch/18/mix "],
+      "conditionals": ["/config/chlink/17-18 OFF"]
+    }
+  ]
+}

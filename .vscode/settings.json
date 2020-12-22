@@ -1,0 +1,10 @@
+{
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "npm.enableRunFromFolder": true,
+  "npm.packageManager": "npm"
+}

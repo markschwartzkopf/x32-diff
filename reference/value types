@@ -1,0 +1,29 @@
+.ENUM ["string1", "string2"]
+.linf [low, high, step]
+.int from 0-x ["int", x]
+.level
+.level161
+.oscFreq (logf[20.000, 20000, 121])
+.freq (logf [20.000, 20000, 201])
+.q (logf [10.000, 0.3, 72])
+.hpf (logf[20.000, 400, 101])
+.hold (logf [0.020, 2000, 101])
+.release (logf [5.000, 4000.000, 101])
+.bitmap with x bits ["bitmap", x]
+.string
+.fxParam (float)
+.fx  ["HALL", "AMBI", "RPLT", "ROOM", "CHAM", "PLAT", "VREV", "VRM",
+    "GATE", "RVRS", "DLY", "3TAP", "4TAP", "CRS", "FLNG", "PHAS",
+    "DIMC", "FILT", "ROTA", "PAN", "SUB", "D/RV", "CR/R", "FL/R",
+    "D/CR", "D/FL", "MODD", "GEQ2", "GEQ", "TEQ2", "TEQ", "DES2",
+    "DES", "P1A", "P1A2", "PQ5", "PQ5S", "WAVD", "LIM", "CMB", "CMB2",
+    "FAC", "FAC1M", "FAC2", "LEC", "LEC2", "ULC", "ULC2", "ENH2",
+    "ENH", "EXC2", "EXC", "IMG", "EDI", "SON", "AMP2", "AMP", "DRV2",
+    "DRV", "PIT2", "PIT"]
+    or
+    ["GEQ2", "GEQ", "TEQ2", "TEQ", "DES2", "DES", "P1A", "P1A2",
+    "PQ5", "PQ5S", "WAVD", "LIM", "FAC", "FAC1M", "FAC2", "LEC",
+    "LEC2", "ULC", "ULC2", "ENH2", "ENH", "EXC2", "EXC", "IMG", "EDI",
+    "SON", "AMP2", "AMP", "DRV2", "DRV", "PHAS", "FILT", "PAN",
+    "SUB"]
+
