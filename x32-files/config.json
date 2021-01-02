@@ -5,6 +5,10 @@
         "name": "Scene File",
         "ignore": [
           "/config/chlink",
+          "/ch/13/mix ",
+          "/ch/14/mix ",
+          "/ch/15/mix ",
+          "/ch/16/mix ",
           "/ch/17",
           "/ch/18",
           "/ch/19",
@@ -39,7 +43,7 @@
           "/headamp/031",
           "/dca/1 ",
           "/dca/2 ",
-          "/dca/3 "
+          "/dca/8 "
         ]
       },
       {
