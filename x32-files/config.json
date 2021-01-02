@@ -4,6 +4,7 @@
         "file": "GDQ_Studio.scn",
         "name": "Scene File",
         "ignore": [
+          "/config/chlink",
           "/ch/17",
           "/ch/18",
           "/ch/19",

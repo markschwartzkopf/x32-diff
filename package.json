@@ -9,7 +9,10 @@
     "watch:client": "./node_modules/typescript/bin/tsc -p ./src/client --diagnostics --watch",
     "build": "npm run build:server && npm run build:client",
     "build:server": "./node_modules/typescript/bin/tsc -p ./src/server --diagnostics",
-    "build:client": "./node_modules/typescript/bin/tsc -p ./src/client --diagnostics"
+    "build:client": "./node_modules/typescript/bin/tsc -p ./src/client --diagnostics",
+    "Watch_pm2_logs": "pm2 logs",
+    "Restart_x32-diff": "pm2 restart x32-diff"
+
   },
   "author": "Mark Schwartzkopf",
   "license": "GPL-3.0",

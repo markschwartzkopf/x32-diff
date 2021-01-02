@@ -19,7 +19,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const x32json = require('./../x32.json');
 Promise.resolve().then(() => __importStar(require('./server')));
 Promise.resolve().then(() => __importStar(require('./api')));
 Promise.resolve().then(() => __importStar(require('./mixer')));

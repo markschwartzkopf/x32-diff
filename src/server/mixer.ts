@@ -5,7 +5,7 @@ import fs from 'fs';
 import X32 from './x32';
 const config = require('./../x32-files/config.json');
 
-const X32_address = '172.19.1.102';
+const X32_address = '192.168.1.53';
 
 let activeFiles: string[] = [];
 
@@ -102,7 +102,7 @@ x32.on('osc', (oscObject) => {
     if (Object.keys(globalObj.diff[key]).length === 0) {
       delete globalObj.diff[key];
     } else {
-      if (!globalObj.diff[key].shown) globalObj.diff[key].shown = false;
+      globalObj.diff[key].shown = false;
     }
   }
   for (const key in smallDiff) {

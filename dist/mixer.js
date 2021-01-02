@@ -7,7 +7,7 @@ const global_1 = __importDefault(require("./global"));
 const fs_1 = __importDefault(require("fs"));
 const x32_1 = __importDefault(require("./x32"));
 const config = require('./../x32-files/config.json');
-const X32_address = '172.19.1.102';
+const X32_address = '192.168.1.53';
 let activeFiles = [];
 let x32 = new x32_1.default(X32_address);
 function oscFileToObject(filename, ignore) {
@@ -100,8 +100,7 @@ x32.on('osc', (oscObject) => {
             delete global_1.default.diff[key];
         }
         else {
-            if (!global_1.default.diff[key].shown)
-                global_1.default.diff[key].shown = false;
+            global_1.default.diff[key].shown = false;
         }
     }
     for (const key in smallDiff) {

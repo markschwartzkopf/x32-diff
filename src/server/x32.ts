@@ -582,7 +582,7 @@ class X32 extends EventEmitter {
         if (Object.keys(returnObj[key]).length == 0) delete returnObj[key];
       }
     }
-    if (Object.keys(returnObj).length > 0) returnObj.shown = false;
+    if (Object.keys(returnObj).length > 0) returnObj.shown = true;
     return returnObj;
   }
 
@@ -601,7 +601,7 @@ class X32 extends EventEmitter {
         if (Object.keys(returnObj[key]).length == 0) delete returnObj[key];
       }
     }
-    if (Object.keys(returnObj).length > 0) returnObj.shown = false;
+    if (Object.keys(returnObj).length > 0) returnObj.shown = true;
     return returnObj;
   }
 }

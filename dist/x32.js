@@ -556,7 +556,7 @@ class X32 extends EventEmitter {
             }
         }
         if (Object.keys(returnObj).length > 0)
-            returnObj.shown = false;
+            returnObj.shown = true;
         return returnObj;
     }
     static getTinyDiffObj(ref, osc) {
@@ -576,7 +576,7 @@ class X32 extends EventEmitter {
             }
         }
         if (Object.keys(returnObj).length > 0)
-            returnObj.shown = false;
+            returnObj.shown = true;
         return returnObj;
     }
 }
