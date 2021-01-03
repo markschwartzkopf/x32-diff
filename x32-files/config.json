@@ -5,6 +5,7 @@
         "name": "Scene File",
         "ignore": [
           "/config/chlink",
+          "/config/osc",
           "/ch/13/mix ",
           "/ch/14/mix ",
           "/ch/15/mix ",

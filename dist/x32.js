@@ -359,6 +359,11 @@ class X32 extends EventEmitter {
                                 xvalue = x32luts['fx5-8'][enumIndex];
                             }
                             break;
+                        case 'trim':
+                            let trimIndex = Math.round(buff.readFloatBE() * 144);
+                            console.log(trimIndex);
+                            xvalue = x32luts.trim[trimIndex];
+                            break;
                         default:
                             return 'error: invalid type ' + xformat + ' in x32.json';
                     }
