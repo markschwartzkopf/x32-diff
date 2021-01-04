@@ -1,23 +1,32 @@
 'use strict';
 export {};
 import globalObj from './global';
-import fs from 'fs';
+import https from 'https';
 import X32 from './x32';
 const config = require('./../x32-files/config.json');
 
 const X32_address = '192.168.1.53';
+const GitHubUrl =
+  'https://raw.githubusercontent.com/GamesDoneQuick/x32-configs/master/';
 
 let activeFiles: string[] = [];
 
 let x32 = new X32(X32_address);
 
-function oscFileToObject(filename: string, ignore?: string[]) {
+function oscFileToObject(filename: string, gitPath: string, ignore?: string[]) {
+  let url = GitHubUrl + gitPath + '/' + filename;
   return new Promise((res, rej) => {
-    fs.readFile(filename, (err, data) => {
-      if (err) {
-        rej('File error:' + err);
-      } else {
-        let inStrings = data.toString().split('\n');
+    https.get(url, (resp) => {
+      let data = '';
+      resp.setEncoding('utf8');
+      resp.on('error', (err) => {
+        rej('Https error:' + err);
+      });
+      resp.on('data', (chunk) => {
+        data += chunk;
+      });
+      resp.on('end', () => {
+        let inStrings = data.split('\n');
         let outStrings: string[] = [];
         if (ignore) {
           for (let x = 0; x < inStrings.length; x++) {
@@ -33,7 +42,7 @@ function oscFileToObject(filename: string, ignore?: string[]) {
 
         let obj: any = X32.oscToObject(outStrings);
         res(obj);
-      }
+      });
     });
   });
 }
@@ -42,7 +51,7 @@ globalObj.reference = [];
 for (let x = 0; x < config.files.length; x++) {
   let ignore = [];
   if (config.files[x].ignore) ignore = config.files[x].ignore;
-  oscFileToObject(__dirname + '/../x32-files/' + config.files[x].file, ignore)
+  oscFileToObject(config.files[x].file, config.files[x].gitPath, ignore)
     .then((obj: any) => {
       globalObj.reference[x] = {
         obj: obj,
@@ -108,6 +117,8 @@ x32.on('osc', (oscObject) => {
   for (const key in smallDiff) {
     if (Object.keys(smallDiff[key]).length === 0) {
       delete smallDiff[key];
+    } else {
+      (<diffObject>smallDiff[key]).shown = false;
     }
   }
   if (Object.keys(smallDiff).length != 0) {

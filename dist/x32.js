@@ -361,7 +361,6 @@ class X32 extends EventEmitter {
                             break;
                         case 'trim':
                             let trimIndex = Math.round(buff.readFloatBE() * 144);
-                            console.log(trimIndex);
                             xvalue = x32luts.trim[trimIndex];
                             break;
                         default:

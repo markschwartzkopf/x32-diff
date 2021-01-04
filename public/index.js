@@ -26,7 +26,6 @@ function processDataFromServer(apiObj) {
             break;
         case 'osc':
             updateOrCreateLeaf(apiObj.data);
-            console.log(apiObj.data);
             rootDiv.innerHTML = '';
             drawTree(rootDiv, oscObj);
             break;

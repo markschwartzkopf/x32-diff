@@ -2,6 +2,7 @@
     "files": [
       {
         "file": "GDQ_Studio.scn",
+        "gitPath": "Studio/Scenes",
         "name": "Scene File",
         "ignore": [
           "/config/chlink",
@@ -44,86 +45,128 @@
           "/headamp/031",
           "/dca/1 ",
           "/dca/2 ",
-          "/dca/8 "
+          "/dca/8 ",
+          "/mtx/01/mix",
+          "/mtx/02/mix"
         ]
       },
       {
         "file": "00RTMP1_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP1 (stereo)",
+        "ignore": [
+          "/headamp/017"
+        ],
         "conditionals": ["/config/chlink/17-18 ON"]
       },
       {
         "file": "01RTMP1_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP1 (mic|game)",
         "conditionals": ["/config/chlink/17-18 OFF"]
       },
       {
         "file": "02RTMP2_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP2 (stereo)",
+        "ignore": [
+          "/headamp/019"
+        ],
         "conditionals": ["/config/chlink/19-20 ON"]
       },
       {
         "file": "03RTMP2_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP2 (mic|game)",
         "conditionals": ["/config/chlink/19-20 OFF"]
       },
       {
         "file": "04RTMP3_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP3 (stereo)",
+        "ignore": [
+          "/headamp/021"
+        ],
         "conditionals": ["/config/chlink/21-22 ON"]
       },
       {
         "file": "05RTMP3_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP3 (mic|game)",
         "conditionals": ["/config/chlink/21-22 OFF"]
       },
       {
         "file": "06RTMP4_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP4 (stereo)",
+        "ignore": [
+          "/headamp/023"
+        ],
         "conditionals": ["/config/chlink/23-24 ON"]
       },
       {
         "file": "07RTMP4_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP4 (mic|game)",
         "conditionals": ["/config/chlink/23-24 OFF"]
       },
       {
         "file": "08RTMP5_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP5 (stereo)",
+        "ignore": [
+          "/headamp/025"
+        ],
         "conditionals": ["/config/chlink/25-26 ON"]
       },
       {
         "file": "09RTMP5_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP5 (mic|game)",
         "conditionals": ["/config/chlink/25-26 OFF"]
       },
       {
         "file": "10RTMP6_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP6 (stereo)",
+        "ignore": [
+          "/headamp/027"
+        ],
         "conditionals": ["/config/chlink/27-28 ON"]
       },
       {
         "file": "11RTMP6_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP6 (mic|game)",
         "conditionals": ["/config/chlink/27-28 OFF"]
       },
       {
         "file": "12RTMP7_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP7 (stereo)",
+        "ignore": [
+          "/headamp/029"
+        ],
         "conditionals": ["/config/chlink/29-30 ON"]
       },
       {
         "file": "13RTMP7_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP7 (mic|game)",
         "conditionals": ["/config/chlink/29-30 OFF"]
       },
       {
         "file": "14RTMP8_Stereo.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP8 (stereo)",
+        "ignore": [
+          "/headamp/031"
+        ],
         "conditionals": ["/config/chlink/31-32 ON"]
       },
       {
         "file": "15RTMP8_Mono.snp",
+        "gitPath": "Studio/Snippets",
         "name": "RTMP8 (mic|game)",
         "conditionals": ["/config/chlink/31-32 OFF"]
       }
