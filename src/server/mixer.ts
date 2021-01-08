@@ -5,6 +5,7 @@ import https from 'https';
 import X32 from './x32';
 const config = require('./../x32-files/config.json');
 
+//These 2 should be stored in config.json and not in the code:
 const X32_address = '192.168.1.53';
 const GitHubUrl =
   'https://raw.githubusercontent.com/GamesDoneQuick/x32-configs/master/';
